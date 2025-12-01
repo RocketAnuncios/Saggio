@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Relatório de Performance - Saggio</title>
+    <link rel="icon" href="https://i.imgur.com/DzbS8nH.png" type="image/png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0D9488',
+                        secondary: '#14B8A6',
+                        accent: '#E0F2F2',
+                        light: '#F8FAFC',
+                        dark: '#0F172A',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+        };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            background: linear-gradient(135deg, #f0f9ff 0%, #f7f9fb 100%);
+            font-family: 'Inter', sans-serif;
+        }
+        .metric-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        .metric-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+        .table-row:nth-child(even) {
+            background-color: #fafafa;
+        }
+        .table-row:hover {
+            background-color: #f0fdfa;
+        }
+        .header-image {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        .technical-image {
+            width: 100%;
+            height: auto;
+            max-height: 400px;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+        }
+        .indicator-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.25rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .indicator-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto px-4 md:px-8 py-6 max-w-7xl">
+        <!-- Cabeçalho com Imagem + Título -->
+        <header class="flex flex-col md:flex-row items-center justify-between gap-6 mb-10 bg-white rounded-2xl p-6 shadow-lg">
+            <!-- Imagem (à esquerda no desktop, acima na mobile) -->
+            <div class="w-full md:w-1/3 flex justify-center">
+                <img src="https://i.imgur.com/DzbS8nH.png" alt="Logo Saggio" class="header-image" />
+            </div>
+
+            <!-- Texto (à direita no desktop, abaixo na mobile) -->
+            <div class="w-full md:w-2/3 text-center md:text-left">
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-900">Loja <span class="text-primary">Saggio</span></h1>
+                <p class="text-lg text-gray-600 mt-2">Relatório de Performance de Anúncios</p>
+                <p class="text-gray-500 mt-1">Período: <span class="font-medium">1 de nov. de 2025</span> a <span class="font-medium">30 de nov. de 2025</span></p>
+                <div class="flex items-center justify-center md:justify-start mt-3 text-sm text-gray-500">
+                    <svg class="w-4 h-4 text-primary mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span class="font-semibold">Atualizado em:</span> <span class="ml-1">30 de novembro de 2025</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Métricas Principais -->
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <!-- Investimento Total -->
+            <div class="metric-card bg-white p-6 rounded-2xl border-l-4 border-primary shadow-sm">
+                <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Investimento Total</p>
+                <p class="text-3xl font-bold text-gray-900 mt-1">R$ 10.158,03</p>
+                <p class="text-xs text-gray-400 mt-1">Valor gasto em anúncios</p>
+            </div>
+
+            <!-- Conversas Iniciadas -->
+            <div class="metric-card bg-white p-6 rounded-2xl border-l-4 border-secondary shadow-sm">
+                <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Conversas Iniciadas</p>
+                <p class="text-3xl font-bold text-gray-900 mt-1">3.694</p>
+                <p class="text-xs text-gray-400 mt-1">Interações com clientes</p>
+            </div>
+
+            <!-- CPR -->
+            <div class="metric-card bg-white p-6 rounded-2xl border-l-4 border-green-500 shadow-sm">
+                <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Custo por Conversa</p>
+                <p class="text-3xl font-bold text-gray-900 mt-1">R$ 2,75</p>
+                <p class="text-xs text-gray-400 mt-1">Eficiência de conversão</p>
+            </div>
+
+            <!-- Cliques -->
+            <div class="metric-card bg-white p-6 rounded-2xl border-l-4 border-amber-500 shadow-sm">
+                <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Cliques (Todos)</p>
+                <p class="text-3xl font-bold text-gray-900 mt-1">15.288</p>
+                <p class="text-xs text-gray-400 mt-1">Interesses gerados</p>
+            </div>
+        </section>
+
+        <!-- Indicadores Técnicos -->
+        <section class="mb-12">
+            <h2 class="text-xl font-bold text-gray-800 mb-4">📈 Indicadores Técnicos</h2>
+            <p class="text-sm text-gray-600 mb-6">Métricas agregadas de alcance, engajamento e visibilidade.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Alcance -->
+                <div class="indicator-card">
+                    <p class="text-sm font-medium text-gray-500">Alcance Total</p>
+                    <p class="text-2xl font-bold text-gray-900 mt-1">342.538</p>
+                    <p class="text-xs text-gray-400 mt-1">Pessoas únicas alcançadas</p>
+                </div>
+                <!-- Impressões -->
+                <div class="indicator-card">
+                    <p class="text-sm font-medium text-gray-500">Impressões Totais</p>
+                    <p class="text-2xl font-bold text-gray-900 mt-1">827.671</p>
+                    <p class="text-xs text-gray-400 mt-1">Visualizações dos anúncios</p>
+                </div>
+                <!-- Visitas ao Perfil IG -->
+                <div class="indicator-card">
+                    <p class="text-sm font-medium text-gray-500">Visitas ao Perfil Instagram</p>
+                    <p class="text-2xl font-bold text-gray-900 mt-1">2.665</p>
+                    <p class="text-xs text-gray-400 mt-1">Tráfego direto para o perfil</p>
+                </div>
+                <!-- Custo por Contato -->
+                <div class="indicator-card">
+                    <p class="text-sm font-medium text-gray-500">Custo por Contato (Média)</p>
+                    <p class="text-2xl font-bold text-gray-900 mt-1">R$ 2,75</p>
+                    <p class="text-xs text-gray-400 mt-1">Baseado em conversas por mensagem</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tabela Detalhada -->
+        <section class="bg-white rounded-2xl shadow-lg overflow-hidden mb-12">
+            <div class="px-6 py-5 border-b border-gray-100">
+                <h2 class="text-xl font-bold text-gray-800">Desempenho por Campanha</h2>
+                <p class="text-sm text-gray-500 mt-1">Detalhes das principais campanhas ativas</p>
+            </div>
+
+            <!-- Aviso para mobile -->
+            <div class="md:hidden bg-amber-50 border-l-4 border-amber-400 p-3 rounded mx-6 mb-4">
+                <p class="text-sm text-amber-800 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 0H3m12 0v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2h10a2 2 0 002-2z" />
+                    </svg>
+                    Deslize para o lado para ver todas as colunas.
+                </p>
+            </div>
+
+            <div class="overflow-x-auto px-6">
+                <table class="min-w-full text-sm">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="py-3 px-4 text-left font-semibold text-gray-600">Nome da Campanha</th>
+                            <th class="py-3 px-4 text-left font-semibold text-gray-600">Investimento (BRL)</th>
+                            <th class="py-3 px-4 text-left font-semibold text-gray-600">Conversas</th>
+                            <th class="py-3 px-4 text-left font-semibold text-gray-600">Cliques</th>
+                            <th class="py-3 px-4 text-left font-semibold text-gray-600">CPR (BRL)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100">
+                        <tr class="table-row hover:bg-accent/50 transition">
+                            <td class="py-4 px-4 font-medium text-gray-900">--- *JULHO** --- GABRIELA</td>
+                            <td class="py-4 px-4 text-gray-700">R$ 1.671,95</td>
+                            <td class="py-4 px-4 text-primary font-semibold">528</td>
+                            <td class="py-4 px-4 text-gray-700">2.372</td>
+                            <td class="py-4 px-4 text-green-600 font-medium">R$ 3,17</td>
+                        </tr>
+                        <tr class="table-row hover:bg-accent/50 transition">
+                            <td class="py-4 px-4 font-medium text-gray-900">--- *JULHO** --- ALICIA</td>
+                            <td class="py-4 px-4 text-gray-700">R$ 1.291,66</td>
+                            <td class="py-4 px-4 text-primary font-semibold">537</td>
+                            <td class="py-4 px-4 text-gray-700">2.118</td>
+                            <td class="py-4 px-4 text-green-600 font-medium">R$ 2,41</td>
+                        </tr>
+                        <tr class="table-row hover:bg-accent/50 transition">
+                            <td class="py-4 px-4 font-medium text-gray-900">--- *JULHO** --- JULIANA</td>
+                            <td class="py-4 px-4 text-gray-700">R$ 2.043,53</td>
+                            <td class="py-4 px-4 text-primary font-semibold">734</td>
+                            <td class="py-4 px-4 text-gray-700">3.093</td>
+                            <td class="py-4 px-4 text-green-600 font-medium">R$ 2,78</td>
+                        </tr>
+                        <tr class="table-row hover:bg-accent/50 transition">
+                            <td class="py-4 px-4 font-medium text-gray-900">--- *JULHO** --- EDNA</td>
+                            <td class="py-4 px-4 text-gray-700">R$ 1.673,88</td>
+                            <td class="py-4 px-4 text-primary font-semibold">578</td>
+                            <td class="py-4 px-4 text-gray-700">2.538</td>
+                            <td class="py-4 px-4 text-green-600 font-medium">R$ 2,90</td>
+                        </tr>
+                        <tr class="table-row hover:bg-accent/50 transition">
+                            <td class="py-4 px-4 font-medium text-gray-900">--- *JULHO** --- ELISANGELA</td>
+                            <td class="py-4 px-4 text-gray-700">R$ 1.668,85</td>
+                            <td class="py-4 px-4 text-primary font-semibold">560</td>
+                            <td class="py-4 px-4 text-gray-700">2.428</td>
+                            <td class="py-4 px-4 text-green-600 font-medium">R$ 2,98</td>
+                        </tr>
+                        <tr class="table-row hover:bg-accent/50 transition">
+                            <td class="py-4 px-4 font-medium text-gray-900">--- *JULHO** --- AMANDA</td>
+                            <td class="py-4 px-4 text-gray-700">R$ 1.667,38</td>
+                            <td class="py-4 px-4 text-primary font-semibold">630</td>
+                            <td class="py-4 px-4 text-gray-700">2.505</td>
+                            <td class="py-4 px-4 text-green-600 font-medium">R$ 2,65</td>
+                        </tr>
+                        <tr class="table-row hover:bg-accent/50 transition">
+                            <td class="py-4 px-4 font-medium text-gray-900">** LILIAN **</td>
+                            <td class="py-4 px-4 text-gray-700">R$ 140,78</td>
+                            <td class="py-4 px-4 text-primary font-semibold">27</td>
+                            <td class="py-4 px-4 text-gray-700">136</td>
+                            <td class="py-4 px-4 text-gray-900 font-medium">R$ 5,21</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Nova Seção: Dados Técnicos -->
+        <section class="bg-white rounded-2xl shadow-lg p-6 mb-12">
+            <h2 class="text-xl font-bold text-gray-800 mb-4">📊 Dados Técnicos</h2>
+            <p class="text-sm text-gray-600 mb-6">Visão detalhada dos dados brutos do Facebook Ads Manager.</p>
+            <div class="flex justify-center">
+                <img src="https://i.imgur.com/QkeB9GZ.png" alt="Dados Técnicos do Facebook Ads Manager" class="technical-image" />
+            </div>
+            <div class="mt-4 text-xs text-gray-500 text-center">
+                Captura de tela dos dados técnicos extraídos do painel de anúncios.
+            </div>
+        </section>
+
+        <!-- Rodapé -->
+        <footer class="mt-12 text-center text-gray-500 text-sm">
+            <p>Relatório gerado automaticamente para <span class="font-semibold text-primary">Loja Saggio</span></p>
+            <p class="mt-1">© 2025 – Todos os direitos reservados.</p>
+        </footer>
+    </div>
+</body>
+</html>
+
